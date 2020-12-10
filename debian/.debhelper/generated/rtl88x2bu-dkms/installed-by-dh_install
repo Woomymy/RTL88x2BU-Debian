@@ -1,0 +1,17 @@
+./usr/src/rtl88x2bu/Kconfig
+./usr/src/rtl88x2bu/LICENSE
+./usr/src/rtl88x2bu/Makefile
+./usr/src/rtl88x2bu/README.md
+./usr/src/rtl88x2bu/ReleaseNotes.pdf
+./usr/src/rtl88x2bu/clean
+./usr/src/rtl88x2bu/core
+./usr/src/rtl88x2bu/dkms.conf
+./usr/src/rtl88x2bu/hal
+./usr/src/rtl88x2bu/halmac.mk
+./usr/src/rtl88x2bu/ifcfg-wlan0
+./usr/src/rtl88x2bu/include
+./usr/src/rtl88x2bu/os_dep
+./usr/src/rtl88x2bu/platform
+./usr/src/rtl88x2bu/rtl8822b.mk
+./usr/src/rtl88x2bu/runwpa
+./usr/src/rtl88x2bu/wlan0dhcp
