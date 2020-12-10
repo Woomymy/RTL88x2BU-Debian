@@ -31,8 +31,8 @@ jobs:
           prerelease: false
       - name: Get file list
         run: |
-          apt update
-          apt install tree -y
+          sudo apt update
+          sudo apt install tree -y
           tree
       - name: Upload Release Asset
         id: upload-release-asset 
