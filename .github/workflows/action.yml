@@ -6,10 +6,10 @@ name: Build and Create release
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Build Debian package
-          uses: dawidd6/action-debian-package@v1
-          with:
-            artifacts_directory: output 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build Debian package
+        uses: dawidd6/action-debian-package@v1
+        with:
+          artifacts_directory: output 
