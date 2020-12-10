@@ -13,6 +13,12 @@ jobs:
         uses: dawidd6/action-debian-package@v1
         with:
           artifacts_directory: output
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)":  
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -20,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          release_name: Release ${{ steps.vars.outputs.branch }}
           draft: false
           prerelease: false
       - name: Get file list
