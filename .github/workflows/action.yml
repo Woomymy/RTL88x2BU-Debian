@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Configure debian package
+        id: config 
+        shell: bash
+        run: |
+          bash "configure.sh"
       - name: Build Debian package
         uses: dawidd6/action-debian-package@v1
         with:

@@ -6,3 +6,4 @@ rtl88x2bu-dkms.postinst.debhelper
 rtl88x2bu-dkms.prerm.debhelper
 rtl88x2bu-dkms.substvars
 debian/.debhelper
+debian/files
