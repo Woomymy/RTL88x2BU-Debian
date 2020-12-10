@@ -1,0 +1,8 @@
+Source: rtl88x2bu-dkms
+Maintainer: Woomy4680-exe <github@woomy.ovh>
+Build-Depends: debhelper (>= 9), dkms, bc
+
+Package: rtl88x2bu-dkms
+Architecture: all
+Depends: ${misc:Depends}
+Description: DKMS source for the Realtek RTL88X2BU Net driver
