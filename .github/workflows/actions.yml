@@ -11,5 +11,5 @@ jobs:
                   uses: actions/checkout@v2
                 - name: Build Debian package
                   uses: dawidd6/action-debian-package@v1
-                with:
+                  with:
                         artifacts_directory: output 
