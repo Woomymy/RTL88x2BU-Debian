@@ -1,7 +1,0 @@
-Package: rtl88x2bu-dkms
-Version: 1.0.0
-Architecture: all
-Maintainer: Woomy4680-exe <github@woomy.ovh>
-Installed-Size: 27310
-Depends: dkms (>= 2.1.0.0)
-Description: DKMS source for the Realtek RTL88X2BU Net driver
