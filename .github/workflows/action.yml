@@ -12,4 +12,24 @@ jobs:
       - name: Build Debian package
         uses: dawidd6/action-debian-package@v1
         with:
-          artifacts_directory: output 
+          artifacts_directory: output
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./rtl88x2bu-dkms_1.0.0_all.deb
+          asset_name: rtl88x2bu-dkms-1.0.0_all.deb
+          asset_content_type: application/vnd.debian.binary-package
