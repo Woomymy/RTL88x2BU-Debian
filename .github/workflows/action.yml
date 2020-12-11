@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Build Debian package
         uses: dawidd6/action-debian-package@v1
         with:
@@ -37,5 +39,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./output/rtl88x2bu-dkms_1.0.0_all.deb
-          asset_name: rtl88x2bu-dkms-1.0.0_all.deb
+          asset_name: rtl88x2bu-dkms-all.deb
           asset_content_type: application/vnd.debian.binary-package
