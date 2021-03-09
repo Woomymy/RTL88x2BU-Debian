@@ -1,0 +1,3 @@
+[submodule "usr/src/rtl88x2bu"]
+	path = usr/src/rtl88x2bu
+	url = https://github.com/RinCat/RTL88x2BU-Linux-Driver
