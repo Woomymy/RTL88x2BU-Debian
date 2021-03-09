@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Build Debian package
         uses: dawidd6/action-debian-package@v1
         with:
