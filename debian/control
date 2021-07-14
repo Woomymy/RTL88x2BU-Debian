@@ -7,3 +7,4 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: DKMS source for the Realtek RTL88X2BU Net driver
 Section: net
+Priority: optional
