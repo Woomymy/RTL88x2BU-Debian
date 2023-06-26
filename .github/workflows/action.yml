@@ -15,12 +15,12 @@ jobs:
         uses: dawidd6/action-debian-package@v1
         with:
           artifacts_directory: output
-      - name: Declare some variables
+      - name: Declareoutput
         id: vars
         shell: bash
         run: |
-          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> "${GITHUB_OUTPUT}"
+          echo "sha_short=$(git rev-parse --short HEAD)" >> "${GITHUB_OUTPUT}"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
