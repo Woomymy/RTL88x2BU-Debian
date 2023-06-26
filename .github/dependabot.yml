@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: gitsubmodule
+    directory: /usr/src/rtl88x2bu
+    schedule:
+      interval: daily
+
