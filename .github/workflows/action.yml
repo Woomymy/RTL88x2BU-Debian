@@ -15,29 +15,14 @@ jobs:
         uses: dawidd6/action-debian-package@v1
         with:
           artifacts_directory: output
-      - name: Declareoutput
-        id: vars
-        shell: bash
-        run: |
-          echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> "${GITHUB_OUTPUT}"
-          echo "sha_short=$(git rev-parse --short HEAD)" >> "${GITHUB_OUTPUT}"
+      - name: Get commit short SHA (release tag)
+        id: shortSha
+        run:
+          echo "shortSha=$(git -C usr/src/rtl88x2bu rev-parse --short HEAD)" >> "${GITHUB_OUTPUT}"
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.vars.outputs.sha_short }}
-          release_name: Release ${{ steps.vars.outputs.sha_short }}
+          tag_name: ${{ steps.shortSha.outputs.shortSha }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./output/rtl88x2bu-dkms_1.0.0_all.deb
-          asset_name: rtl88x2bu-dkms-all.deb
-          asset_content_type: application/vnd.debian.binary-package
+          files: output/rtl88x2bu-dkms_1.0.0_all.deb
