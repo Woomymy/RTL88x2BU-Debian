@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          submodules: true
+      - name: Clone driver
+        run: git clone https://github.com/RinCat/RTL88x2BU-Linux-Driver.git usr/src/rtl88x2bu
       - name: Build Debian package
         uses: dawidd6/action-debian-package@v1
         with:
