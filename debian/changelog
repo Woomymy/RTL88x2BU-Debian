@@ -1,4 +1,4 @@
-rtl88x2bu-dkms (1.0.0) buster; urgency=medium
+rtl88x2bu-dkms (1.0.0) trixie; urgency=medium
 
   * Initial package
 
