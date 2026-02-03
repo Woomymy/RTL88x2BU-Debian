@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Clone driver
         run: git clone https://github.com/RinCat/RTL88x2BU-Linux-Driver.git usr/src/rtl88x2bu
       - name: Build Debian package
@@ -21,7 +21,7 @@ jobs:
         run:
           echo "shortSha=$(git -C usr/src/rtl88x2bu rev-parse --short HEAD)" >> "${GITHUB_OUTPUT}"
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.shortSha.outputs.shortSha }}
           draft: false
